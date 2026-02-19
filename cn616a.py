@@ -327,6 +327,14 @@ class CN616A:
             base = self._pid_base(int(z))
             self.write_float(base + PID_AUTOTUNE_SETPOINT, float(sp))
 
+    def get_autotune_setpoint(self, zone: int) -> float:
+        """
+        Read the autotune setpoint (Base+0x18).
+        """
+        base = self._pid_base(int(zone))
+        return self.read_float(base + PID_AUTOTUNE_SETPOINT)
+
+
     def start_autotune(self, zones: int | list[int] | tuple[int, ...]) -> None:
         """
         Start autotune (Base+0x16 = 1).

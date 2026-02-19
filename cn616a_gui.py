@@ -595,6 +595,7 @@ class CN616AGui(tk.Tk):
                         "method": method.name,
                         "mode": mode.name,
                         "autotune": bool(at),
+                        "autotune_sp_c": float(ctl.get_autotune_setpoint(z)),
                         "eq_sum_abs": float(eq_sum),
                         "equilibrium": bool(eq_ok),
                     })
